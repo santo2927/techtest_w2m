@@ -24,24 +24,24 @@ El proyecto está estructurado en paquetes de acuerdo a la arquitectura de capas
 1. **Aspect:** Contiene los aspectos de Spring AOP para interceptar llamadas a métodos y realizar acciones adicionales.
    Principalmente se ha implementado un aspecto para registrar logs cuando se solicita una nave con un id negativo y
    un aspecto para enviar a kafka la información de las naves que se crean, modifican o eliminan.
-    - [Aspecto de Log](/src/main/java/world/to/meet/techtest/aspect/ShipAspect.java)
-    - [Aspecto de Kafka](/src/main/java/world/to/meet/techtest/aspect/KafkaAspect.java)
+    - [Aspecto de Log](/workdir/src/main/java/world/to/meet/techtest/aspect/ShipAspect.java)
+    - [Aspecto de Kafka](/workdir/src/main/java/world/to/meet/techtest/aspect/KafkaAspect.java)
 2. **Config:** Contiene las clases de configuración de Kafka y de Spring Security.
-    - [Configuración de Kafka](/src/main/java/world/to/meet/techtest/config/KafkaConfig.java)
-    - [Configuración de Spring Security](/src/main/java/world/to/meet/techtest/config/SecurityConfig.java)
+    - [Configuración de Kafka](/workdir/src/main/java/world/to/meet/techtest/config/KafkaConfig.java)
+    - [Configuración de Spring Security](/workdir/src/main/java/world/to/meet/techtest/config/SecurityConfig.java)
 3. **Controller:** Contiene los controladores REST de la aplicación y accede a los servicios para realizar operaciones.
-    - [Controlador de Naves](/src/main/java/world/to/meet/techtest/controller/ShipController.java)
+    - [Controlador de Naves](/workdir/src/main/java/world/to/meet/techtest/controller/ShipController.java)
 4. **Exception:** Contiene las clases de excepción personalizadas y un controlador de excepciones global para manejar
    todas las excepciones lanzadas por la aplicación y devolver respuestas HTTP apropiadas.
-    - [Excepciones Personalizadas](/src/main/java/world/to/meet/techtest/exception)
-    - [Controlador de Excepciones Global](/src/main/java/world/to/meet/techtest/exception/GlobalExceptionHandler.java)
+    - [Excepciones Personalizadas](/workdir/src/main/java/world/to/meet/techtest/exception)
+    - [Controlador de Excepciones Global](/workdir/src/main/java/world/to/meet/techtest/exception/GlobalExceptionHandler.java)
 5. **Model:** Contiene las entidades de la base de datos, no he visto necesaria la implementación de DTOs. (De necesitarlo
    se implementaría con facilidad con MapStruct).
-    - [Entidades de la Base de Datos](/src/main/java/world/to/meet/techtest/model)
+    - [Entidades de la Base de Datos](/workdir/src/main/java/world/to/meet/techtest/model)
 6. **Repository:** Contiene las interfaces de repositorio de Spring Data JPA para interactuar con la base de datos.
-    - [Repositorio de Naves](/src/main/java/world/to/meet/techtest/repository/ShipRepository.java)
+    - [Repositorio de Naves](/workdir/src/main/java/world/to/meet/techtest/repository/ShipRepository.java)
 7. **Service:** Contiene la lógica de negocio de la aplicación y accede a los repositorios para realizar operaciones de base de datos.
-    - [Servicio de Naves](/src/main/java/world/to/meet/techtest/service/ShipService.java)
+    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/ShipService.java)
 
 Todo lo pedido ha sido implementado, aquí una explicación de como se ha implementado cada punto:
 
@@ -73,35 +73,35 @@ Todo lo pedido ha sido implementado, aquí una explicación de como se ha implem
     he implementado un aspecto de Spring que intercepta las llamadas al método de eliminación de una nave y envía
     la información de la nave eliminada a un tópico de Kafka.
 
-Todos los endpoints se han desarrollado en el [controlador de naves](/src/main/java/world/to/meet/techtest/controller/ShipController.java).
+Todos los endpoints se han desarrollado en el [controlador de naves](/workdir/src/main/java/world/to/meet/techtest/controller/ShipController.java).
 
 7. **Test unitario de como mínimo de una clase:**
     - He escrito test unitarios con JUnit5 y Mockito para todas las clases de la aplicación que contenían lógica.
-    - [Test de Servicio de Naves](/src/test/java/world/to/meet/techtest/unit)
+    - [Test de Servicio de Naves](/workdir/src/test/java/world/to/meet/techtest/unit)
    
 8. **Desarrollar un @Aspect que añada una línea de log cuando nos piden una nave con un id negativo:**
     - He implementado un aspecto de Spring que intercepta las llamadas al método de consulta de una nave y registra un log
     cuando se solicita una nave con un id negativo.
-    - [Aspecto de Log](/src/main/java/world/to/meet/techtest/aspect/ShipAspect.java)
+    - [Aspecto de Log](/workdir/src/main/java/world/to/meet/techtest/aspect/ShipAspect.java)
 
 9. **Gestión centralizada de excepciones:**
     - He implementado un controlador de excepciones global que maneja todas las excepciones lanzadas por la aplicación y
     devuelve respuestas HTTP apropiadas.
-    - [Controlador de Excepciones Global](/src/main/java/world/to/meet/techtest/exception/GlobalExceptionHandler.java)
+    - [Controlador de Excepciones Global](/workdir/src/main/java/world/to/meet/techtest/exception/GlobalExceptionHandler.java)
    
 10. **Utilizar cachés de algún tipo:**
     - He implementado caché de Spring para las consultas de naves por id y por nombre. He utilizado la anotación `@Cacheable`
     para habilitar la caché en los métodos de consulta y la anotación `@CacheEvict` para limpiar la caché cuando se modifica
     o elimina una nave.
-    - [Servicio de Naves](/src/main/java/world/to/meet/techtest/service/ShipService.java)
+    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/ShipService.java)
 
 11. Utilizar alguna librería que facilite el mantenimiento de los scripts DDL de base de datos:
     - He utilizado la librería `flyway` para mantener los scripts DDL de la base de datos. 
-    - [Scripts DDL de Base de Datos](/src/main/resources/db)
+    - [Scripts DDL de Base de Datos](/workdir/src/main/resources/db)
 
 12. Test de integración:
     - He implementado test de integración end to end con MockMvc para probar los controladores REST de la aplicación.
-    - [Test de Integración](/src/test/java/world/to/meet/techtest/integration)
+    - [Test de Integración](/workdir/src/test/java/world/to/meet/techtest/integration)
 
 13. Presentar la aplicación dockerizada:
     - He implementado un Dockerfile para empaquetar la aplicación en un contenedor de Docker. Luego también
@@ -116,11 +116,11 @@ Todos los endpoints se han desarrollado en el [controlador de naves](/src/main/j
 15. Seguridad del API:
     - He implementado seguridad del API con Spring Security. He habilitado la autenticación básica con un usuario administrador
     por defecto y he asegurado todos los endpoints de la aplicación.
-    - [Configuración de Spring Security](/src/main/java/world/to/meet/techtest/config/SecurityConfig.java)
+    - [Configuración de Spring Security](/workdir/src/main/java/world/to/meet/techtest/config/SecurityConfig.java)
 
 16. Implementar algún consumer/producer para algún broker (Rabbit, Kafka, etc):
     - He implementado un producer para Kafka que envía la información de las naves creadas, modificadas o eliminadas a un tópico de Kafka.
-    - [Aspecto de Kafka](/src/main/java/world/to/meet/techtest/aspect/KafkaAspect.java)
+    - [Aspecto de Kafka](/workdir/src/main/java/world/to/meet/techtest/aspect/KafkaAspect.java)
 
 ## Cosas que se podrían mejorar:
 
