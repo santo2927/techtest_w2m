@@ -30,7 +30,7 @@ El proyecto está estructurado en paquetes de acuerdo a la arquitectura de capas
     - [Configuración de Kafka](/workdir/src/main/java/world/to/meet/techtest/config/KafkaConfig.java)
     - [Configuración de Spring Security](/workdir/src/main/java/world/to/meet/techtest/config/SecurityConfig.java)
 3. **Controller:** Contiene los controladores REST de la aplicación y accede a los servicios para realizar operaciones.
-    - [Controlador de Naves](/workdir/src/main/java/world/to/meet/techtest/controller/ShipController.java)
+    - [Controlador de Naves](/workdir/src/main/java/world/to/meet/techtest/controller/SpacialShipController.java)
 4. **Exception:** Contiene las clases de excepción personalizadas y un controlador de excepciones global para manejar
    todas las excepciones lanzadas por la aplicación y devolver respuestas HTTP apropiadas.
     - [Excepciones Personalizadas](/workdir/src/main/java/world/to/meet/techtest/exception)
@@ -39,9 +39,9 @@ El proyecto está estructurado en paquetes de acuerdo a la arquitectura de capas
    se implementaría con facilidad con MapStruct).
     - [Entidades de la Base de Datos](/workdir/src/main/java/world/to/meet/techtest/model)
 6. **Repository:** Contiene las interfaces de repositorio de Spring Data JPA para interactuar con la base de datos.
-    - [Repositorio de Naves](/workdir/src/main/java/world/to/meet/techtest/repository/ShipRepository.java)
+    - [Repositorio de Naves](/workdir/src/main/java/world/to/meet/techtest/repository/SpacialShipRepository.java)
 7. **Service:** Contiene la lógica de negocio de la aplicación y accede a los repositorios para realizar operaciones de base de datos.
-    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/ShipService.java)
+    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/SpacialShipService.java)
 
 Todo lo pedido ha sido implementado, aquí una explicación de como se ha implementado cada punto:
 
@@ -73,7 +73,7 @@ Todo lo pedido ha sido implementado, aquí una explicación de como se ha implem
     he implementado un aspecto de Spring que intercepta las llamadas al método de eliminación de una nave y envía
     la información de la nave eliminada a un tópico de Kafka.
 
-Todos los endpoints se han desarrollado en el [controlador de naves](/workdir/src/main/java/world/to/meet/techtest/controller/ShipController.java).
+Todos los endpoints se han desarrollado en el [controlador de naves](/workdir/src/main/java/world/to/meet/techtest/controller/SpacialShipController.java).
 
 7. **Test unitario de como mínimo de una clase:**
     - He escrito test unitarios con JUnit5 y Mockito para todas las clases de la aplicación que contenían lógica.
@@ -93,7 +93,7 @@ Todos los endpoints se han desarrollado en el [controlador de naves](/workdir/sr
     - He implementado caché de Spring para las consultas de naves por id y por nombre. He utilizado la anotación `@Cacheable`
     para habilitar la caché en los métodos de consulta y la anotación `@CacheEvict` para limpiar la caché cuando se modifica
     o elimina una nave.
-    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/ShipService.java)
+    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/SpacialShipService.java)
 
 11. Utilizar alguna librería que facilite el mantenimiento de los scripts DDL de base de datos:
     - He utilizado la librería `flyway` para mantener los scripts DDL de la base de datos. 
