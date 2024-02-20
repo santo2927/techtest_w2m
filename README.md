@@ -41,7 +41,7 @@ El proyecto está estructurado en paquetes de acuerdo a la arquitectura de capas
 6. **Repository:** Contiene las interfaces de repositorio de Spring Data JPA para interactuar con la base de datos.
     - [Repositorio de Naves](/workdir/src/main/java/world/to/meet/techtest/repository/SpacialShipRepository.java)
 7. **Service:** Contiene la lógica de negocio de la aplicación y accede a los repositorios para realizar operaciones de base de datos.
-    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/SpacialShipService.java)
+    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/SpacialShipServiceImpl.java)
 
 Todo lo pedido ha sido implementado, aquí una explicación de como se ha implementado cada punto:
 
@@ -93,7 +93,7 @@ Todos los endpoints se han desarrollado en el [controlador de naves](/workdir/sr
     - He implementado caché de Spring para las consultas de naves por id y por nombre. He utilizado la anotación `@Cacheable`
     para habilitar la caché en los métodos de consulta y la anotación `@CacheEvict` para limpiar la caché cuando se modifica
     o elimina una nave.
-    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/SpacialShipService.java)
+    - [Servicio de Naves](/workdir/src/main/java/world/to/meet/techtest/service/SpacialShipServiceImpl.java)
 
 11. Utilizar alguna librería que facilite el mantenimiento de los scripts DDL de base de datos:
     - He utilizado la librería `flyway` para mantener los scripts DDL de la base de datos. 
