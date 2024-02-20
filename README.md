@@ -24,7 +24,7 @@ El proyecto está estructurado en paquetes de acuerdo a la arquitectura de capas
 1. **Aspect:** Contiene los aspectos de Spring AOP para interceptar llamadas a métodos y realizar acciones adicionales.
    Principalmente se ha implementado un aspecto para registrar logs cuando se solicita una nave con un id negativo y
    un aspecto para enviar a kafka la información de las naves que se crean, modifican o eliminan.
-    - [Aspecto de Log](/src/main/java/world/to/meet/techtest/aspect/ShipAspect.java)
+    - [Aspecto de Log](/workdir/src/main/java/world/to/meet/techtest/aspect/ShipAspect.java)
     - [Aspecto de Kafka](/src/main/java/world/to/meet/techtest/aspect/KafkaAspect.java)
 2. **Config:** Contiene las clases de configuración de Kafka y de Spring Security.
     - [Configuración de Kafka](/src/main/java/world/to/meet/techtest/config/KafkaConfig.java)
